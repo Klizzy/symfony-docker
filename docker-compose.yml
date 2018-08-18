@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+    db:
+        image: mysql:5.7
+        container_name: klizzy_mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+        ports:
+            - 3336:3306
+    php:
+        image: klizzy/php-base:7.2
+        container_name: klizzy_php
+        environment:
+            APACHE_DOCUMENT_ROOT: ${APACHE_DOC_ROOT}
+        volumes:
+            - ./symfony:/var/www/symfony
+        ports:
+            - 8080:80
