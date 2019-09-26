@@ -7,3 +7,11 @@ Just my personal docker symfony 4 boilerplate to kickstart development - nothing
 * ZSH
 * PHP:7.2
 * NPM:latest, NVM:0.33.11, NODE:8.9.0, YARN:latest
+
+
+## setup
+
+```bash
+cp .env.dist .env
+docker-compose up -d
+```
