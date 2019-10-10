@@ -12,6 +12,5 @@ Just my personal docker symfony 4 boilerplate to kickstart development - nothing
 ## setup
 
 ```bash
-cp .env.dist .env
 docker-compose up -d
 ```
