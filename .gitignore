@@ -163,5 +163,6 @@ $RECYCLE.BIN/
 /logs
 /.data
 .env
+.docker-sync
 
 

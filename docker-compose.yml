@@ -10,11 +10,16 @@ services:
         ports:
             - 3336:3306
     php:
-        image: klizzy/php-base:7.2
+        image: klizzy/php-base:7.4
         container_name: klizzy_php
         environment:
-            APACHE_DOCUMENT_ROOT: /var/www/
+            APACHE_DOCUMENT_ROOT: /var/www/public
         volumes:
-            - ./www:/var/www/
+            - symfony-docker-volume:/www:nocopy
+            - symfony-docker-volume:/var/www:nocopy
         ports:
             - 8080:80
+
+volumes:
+    symfony-docker-volume:
+        external: true
