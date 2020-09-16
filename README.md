@@ -6,11 +6,25 @@ Just my personal docker symfony 4 boilerplate to kickstart development - nothing
 * xdebug
 * ZSH
 * PHP:7.2
-* NPM:latest, NVM:0.33.11, NODE:8.9.0, YARN:latest
+* NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
+* Docker-sync
 
 
-## setup
+## Setup
 
+Checkout your project into the `/www` directory and set the `APACHE_DOCUMENT_ROOT` env in the docker-compose file, to match your framework / setup.
+
+### Start Setup
 ```bash
-docker-compose up -d
+./docker.sh start
+```
+
+### Stop Setup
+```bash
+./docker.sh stop
+```
+
+### Connect into container
+```bash
+./docker.sh ssh
 ```
