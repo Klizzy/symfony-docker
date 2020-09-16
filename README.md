@@ -5,7 +5,7 @@ Just my personal docker symfony 4 boilerplate to kickstart development - nothing
 **Current Specs**
 * xdebug
 * ZSH
-* PHP:7.2
+* PHP:7.4
 * NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
 * Docker-sync
 
