@@ -19,7 +19,10 @@ services:
             - symfony-docker-volume:/var/www:nocopy
         ports:
             - 8080:80
-
+    redis:
+        image: redis:6.0.8
+        ports:
+            - 6379:6379
 volumes:
     symfony-docker-volume:
         external: true
