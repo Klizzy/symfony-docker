@@ -23,10 +23,11 @@ function command_start() {
 }
 
 function command_stop() {
-  if [[ "$1" == "stop" ]]
+  if [[ ${ENV_MAC} == false  ]]
    then
-      docker-sync stop && docker-compose stop
-fi
+       docker-compose stop
+   fi
+    docker-sync stop && docker-compose stop
 }
 
 function command_help() {
