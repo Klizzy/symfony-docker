@@ -13,10 +13,10 @@ if [[ "$1" == "ssh" ]]
    fi
 if [[ "$1" == "start" ]]
    then
-         if [[ ${ENV_MAC} == false ]]; then
-        docker-compose -f docker-compose.yml up -d
-    fi
-      docker-sync start && docker-compose -f docker-compose.yml up -d
+       if [[ ${ENV_MAC} == false ]]; then
+       docker-compose -f docker-compose.yml up -d
+   fi
+        docker-sync start && docker-compose -f docker-compose-sync.yml -f docker-compose.yml up -d
 fi
 if [[ "$1" == "stop" ]]
    then
