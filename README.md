@@ -1,13 +1,13 @@
-# Docker Symfony4 Kickstart Setup
+# Docker Symfony setup
 
-Just my personal docker symfony 4 boilerplate to kickstart development - nothing special here 😉
+Docker setup for symfony or other php projects. It currently supports MacOS (docker-sync) and Unix (native docker volumes).
 
 **Current Specs**
 * xdebug
 * ZSH
 * PHP:7.4
 * NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
-* Docker-sync
+* Docker-sync / native docker volumes
 
 
 ## Setup
