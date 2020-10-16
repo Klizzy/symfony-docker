@@ -15,8 +15,7 @@ services:
         environment:
             APACHE_DOCUMENT_ROOT: /var/www/public
         volumes:
-            - symfony-docker-volume:/www:nocopy
-            - symfony-docker-volume:/var/www:nocopy
+            - ./www:/var/www
         ports:
             - 8080:80
     redis:
