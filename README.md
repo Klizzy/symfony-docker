@@ -1,6 +1,7 @@
 # Docker Symfony setup
 
 Docker setup for symfony or other php projects. It currently supports MacOS (docker-sync) and Unix (native docker volumes).
+This repository currently contains support for PHP 7.2 up to PHP 7.4. Just checkout the needed tag and you're good to go.
 
 **Current Specs**
 * xdebug
