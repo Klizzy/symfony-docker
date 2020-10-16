@@ -13,6 +13,7 @@ Just my personal docker symfony 4 boilerplate to kickstart development - nothing
 ## Setup
 
 Checkout your project into the `/www` directory and set the `APACHE_DOCUMENT_ROOT` env in the docker-compose file, to match your framework / setup.
+Type `./docker.sh` to see a help message for additional commands.
 
 ### Start Setup
 ```bash
