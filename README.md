@@ -5,7 +5,7 @@ Docker setup for symfony or other php projects. It currently supports MacOS (doc
 **Current Specs**
 * xdebug
 * ZSH
-* PHP:7.4
+* PHP:7.2
 * NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
 * Docker-sync / native docker volumes
 
