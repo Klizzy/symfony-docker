@@ -38,6 +38,10 @@ function command_help() {
   awk 'BEGIN{FS="^[ ]+|\\) |## "} /^.*?[^*]+\) command_[a-zA-Z_\-]+ ;;/ {printf "  \033[32m%-30s\033[0m %s\n", $2, $4}' $0
 }
 
+function command_permission(){
+  docker exec -i klizzy_php chown www-data:www-data -R /var/www/
+}
+
 function command_setup(){
   command_start
   docker exec -w "/var/www/" klizzy_php composer self-update --2
@@ -53,5 +57,6 @@ case ${CMD1} in
   start) command_start ;; ## starts docker setup
   stop) command_stop ;; ## stops docker setup
   setup) command_setup ;; ## project setup
+  permission) command_permission ;; ## sets the correct file permissions in the container
   *) command_help ;; ## Shows this help.
 esac
