@@ -38,15 +38,20 @@ function command_help() {
   awk 'BEGIN{FS="^[ ]+|\\) |## "} /^.*?[^*]+\) command_[a-zA-Z_\-]+ ;;/ {printf "  \033[32m%-30s\033[0m %s\n", $2, $4}' $0
 }
 
-#if [[ "$1" == "setup" ]]
-#	then
-#
-#fi
+function command_setup(){
+  command_start
+  docker exec -w "/var/www/" klizzy_php composer self-update --2
+  docker exec -w "/var/www/" klizzy_php cp .env.dist .env
+  docker exec -w "/var/www/" klizzy_php composer install -oa
+  docker exec -w "/var/www/" klizzy_php php bin/console doctrine:schema:create -n
+  docker exec -i klizzy_php chown www-data:www-data -R /var/www/
+}
 
 shift || true
 case ${CMD1} in
   ssh) command_ssh ;; ## ssh into container
   start) command_start ;; ## starts docker setup
   stop) command_stop ;; ## stops docker setup
+  setup) command_setup ;; ## project setup
   *) command_help ;; ## Shows this help.
 esac
