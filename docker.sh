@@ -51,6 +51,14 @@ function command_setup(){
   docker exec -i klizzy_php chown www-data:www-data -R /var/www/
 }
 
+function xdebug_on() {
+    docker exec -i klizzy_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+}
+
+function xdebug_off() {
+    docker exec -i klizzy_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled
+}
+
 shift || true
 case ${CMD1} in
   ssh) command_ssh ;; ## ssh into container
@@ -58,5 +66,7 @@ case ${CMD1} in
   stop) command_stop ;; ## stops docker setup
   setup) command_setup ;; ## project setup
   permission) command_permission ;; ## sets the correct file permissions in the container
+  xdebug:off) xdebug_off ;; ## disabled xdebug in the container
+  xdebug:on) xdebug_on ;; ## enables xdebug in the container
   *) command_help ;; ## Shows this help.
 esac
