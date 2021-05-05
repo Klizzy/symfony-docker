@@ -31,8 +31,18 @@ Type `./docker.sh` to see a help message for additional commands.
 ./docker.sh ssh
 ```
 
+### Enables xdebug
+```bash
+./docker.sh xdebug:on
+```
+
+### Disables xdebug
+```bash
+./docker.sh xdebug:off
+```
+
 ## Aliases
-if you connect into the container, i'll have the following aliases:
+if you connect into the container, it will have the following aliases:
 
 ### Enable xdebug
 ```bash
