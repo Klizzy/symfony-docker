@@ -23,5 +23,14 @@ services:
         container_name: klizzy_redis
         ports:
             - 6379:6379
+    rabbitmq:
+        image: rabbitmq:3.8.16-management
+        container_name: klizzy_rabbitmq
+        environment:
+            RABBITMQ_DEFAULT_USER: admin
+            RABBITMQ_DEFAULT_PASS: admin
+        ports:
+            - 15672:15672
+            - 5672:5672
 volumes:
     symfony-docker-volume: {}
