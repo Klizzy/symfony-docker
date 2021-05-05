@@ -13,6 +13,7 @@ esac
 function command_ssh() {
   bash -c "clear && docker exec -it klizzy_php zsh"
 }
+
 function command_start() {
   if [[ ${ENV_MAC} == false  ]]
    then
@@ -44,7 +45,6 @@ function command_permission(){
 
 function command_setup(){
   command_start
-  docker exec -w "/var/www/" klizzy_php composer self-update --2
   docker exec -w "/var/www/" klizzy_php cp .env.dist .env
   docker exec -w "/var/www/" klizzy_php composer install -oa
   docker exec -w "/var/www/" klizzy_php php bin/console doctrine:schema:create -n
