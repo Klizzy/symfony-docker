@@ -60,11 +60,11 @@ function xdebug_off() {
 }
 
 function create_new_symfony_full_project() {
-    symfony new --full .
+    docker exec -i klizzy_php symfony new --full .
 }
 
 function create_new_symfony_micro_project() {
-    symfony new .
+    docker exec -i klizzy_php symfony new .
 }
 
 shift || true
