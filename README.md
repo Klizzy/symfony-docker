@@ -33,6 +33,18 @@ Type `./docker.sh` to see a help message for additional commands.
 ./docker.sh ssh
 ```
 
+### Symfony full install
+It runs `symfony new --full ./` inside the docker container working dir. After that you'll have a running symfony default application. Change the DB credentials in the `www/.env`and you are good to go
+```bash
+./docker.sh symfony:full
+```
+
+### Symfony microservice install
+It runs `symfony new ./` inside the docker container working dir. After that you'll have a running symfony microservice application. Change the DB credentials in the `www/.env`and you are good to go
+```bash
+./docker.sh symfony:micro
+```
+
 ### Enables xdebug
 ```bash
 ./docker.sh xdebug:on

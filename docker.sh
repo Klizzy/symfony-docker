@@ -59,6 +59,14 @@ function xdebug_off() {
     docker exec -i klizzy_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled
 }
 
+function create_new_symfony_full_project() {
+    symfony new --full .
+}
+
+function create_new_symfony_micro_project() {
+    symfony new .
+}
+
 shift || true
 case ${CMD1} in
   ssh) command_ssh ;; ## ssh into container
@@ -68,5 +76,7 @@ case ${CMD1} in
   permission) command_permission ;; ## sets the correct file permissions in the container
   xdebug:off) xdebug_off ;; ## disabled xdebug in the container
   xdebug:on) xdebug_on ;; ## enables xdebug in the container
+  symfony:full) create_new_symfony_full_project ;; ## Installs the latest stable full symfony application into
+  symfony:micro) create_new_symfony_micro_project ;; ## Installs the latest stable microservice symfony application
   *) command_help ;; ## Shows this help.
 esac
