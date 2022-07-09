@@ -107,7 +107,8 @@ fabric.properties
 /bin/*
 !bin/console
 !bin/symfony_requirements
-/vendor/
+www/vendor/
+www/var/
 
 # Assets and user uploads
 /web/bundles/

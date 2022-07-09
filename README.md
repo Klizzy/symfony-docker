@@ -6,7 +6,7 @@ This repository currently contains support for PHP 7.2 up to PHP 7.4. Just check
 **Current Specs**
 * xdebug
 * ZSH
-* PHP:7.4.11
+* PHP:7.4.18
 * NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
 * Docker-sync / native docker volumes
 * Composer 2
