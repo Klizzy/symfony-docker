@@ -3,5 +3,5 @@ syncs:
     symfony-docker-volume:
         sync_strategy: 'native_osx'
         notify_terminal: true
-        src: './www'
-        sync_excludes: ['.git', '.idea']
+        src: 'www'
+        sync_excludes: ['.git', '.idea', 'var/cache', 'var/cache/*', 'var/cache/log/*', 'var/log/*']

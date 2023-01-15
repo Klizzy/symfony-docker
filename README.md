@@ -11,6 +11,9 @@ This repository currently contains support for PHP 7.2 up to PHP 7.4. Just check
 * Docker-sync / native docker volumes
 * Composer 2
 * [Symfony-cli](https://symfony.com/download)
+* [Deployer](https://github.com/deployphp/deployer)
+* ZSH
+* Docker-sync / native docker volumes (OS will be detected)
 
 
 ## Setup
@@ -31,6 +34,16 @@ Type `./docker.sh` to see a help message for additional commands.
 ### Connect into container
 ```bash
 ./docker.sh ssh
+```
+
+### Build project
+```bash
+./docker.sh setup
+```
+
+### Stop and Remove docker container with their volumes
+```bash
+./docker.sh rm
 ```
 
 ### Symfony full install
