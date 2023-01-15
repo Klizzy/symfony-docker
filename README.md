@@ -1,15 +1,13 @@
 # Docker Symfony setup
 
 Docker setup for symfony or other php projects. It currently supports MacOS (docker-sync) and Unix (native docker volumes).
-This repository currently contains support for PHP 7.2 up to PHP 7.4. Just checkout the needed tag and you're good to go.
+This repository currently contains support for PHP 7.2 up to PHP 8.2.1. Just checkout the needed tag and you're good to go.
 
 **Current Specs**
-* xdebug
-* ZSH
-* PHP:7.4.18
-* NPM:latest, NVM:0.33.11, NODE:12.18.2 LTS, YARN:latest
-* Docker-sync / native docker volumes
-* Composer 2
+* PHP: 8.2.1
+* PHP modules: Xdebug 3, redis, amqp, soap, pcov, opcache, apcu
+* Composer 2.4.4
+* NPM: 8.19.3, NVM: 0.39.1, NODE: 16.19.0 LTS, YARN: 1.22.19
 * [Symfony-cli](https://symfony.com/download)
 * [Deployer](https://github.com/deployphp/deployer)
 * ZSH
@@ -21,7 +19,7 @@ This repository currently contains support for PHP 7.2 up to PHP 7.4. Just check
 Checkout your project into the `/www` directory and set the `APACHE_DOCUMENT_ROOT` env in the docker-compose file, to match your framework / setup.
 Type `./docker.sh` to see a help message for additional commands.
 
-### Start Setup
+### Start setup
 ```bash
 ./docker.sh start
 ```
@@ -41,7 +39,7 @@ Type `./docker.sh` to see a help message for additional commands.
 ./docker.sh setup
 ```
 
-### Stop and Remove docker container with their volumes
+### Stop and remove docker container with their volumes
 ```bash
 ./docker.sh rm
 ```
