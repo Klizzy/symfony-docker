@@ -1,6 +1,6 @@
 version: "2"
 syncs:
-    symfony-docker-volume:
+    symfony_docker_volume:
         sync_strategy: 'native_osx'
         notify_terminal: true
         src: 'www'
