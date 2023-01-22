@@ -2,7 +2,7 @@ version: "3.0"
 services:
     php:
         volumes:
-            - symfony-docker-volume:/var/www:nocopy
+            - symfony_docker_volume:/var/www:nocopy
 volumes:
-    symfony-docker-volume:
+    symfony_docker_volume:
         external: true

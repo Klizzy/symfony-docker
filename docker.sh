@@ -11,7 +11,7 @@ Darwin)
 esac
 
 function command_ssh() {
-    bash -c "clear && docker exec -it klizzy_php zsh"
+    bash -c "clear && docker exec -it symfony_docker_php zsh"
 }
 
 function command_start() {
@@ -43,31 +43,31 @@ function command_help() {
 }
 
 function command_permission() {
-    docker exec -i klizzy_php chown www-data:www-data -R /var/www/
+    docker exec -i symfony_docker_php chown www-data:www-data -R /var/www/
 }
 
 function command_setup() {
     command_start
-    docker exec -w "/var/www/" klizzy_php cp .env.dist .env
-    docker exec -w "/var/www/" klizzy_php composer install -oa
-    docker exec -w "/var/www/" klizzy_php php bin/console doctrine:schema:create -n
-    docker exec -i klizzy_php chown www-data:www-data -R /var/www/
+    docker exec -w "/var/www/" symfony_docker_php cp .env.dist .env
+    docker exec -w "/var/www/" symfony_docker_php composer install -oa
+    docker exec -w "/var/www/" symfony_docker_php php bin/console doctrine:schema:create -n
+    docker exec -i symfony_docker_php chown www-data:www-data -R /var/www/
 }
 
 function xdebug_on() {
-    docker exec -i klizzy_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    docker exec -i symfony_docker_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 }
 
 function xdebug_off() {
-    docker exec -i klizzy_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled
+    docker exec -i symfony_docker_php mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.disabled
 }
 
 function create_new_symfony_full_project() {
-    docker exec -i klizzy_php symfony new --full --dir= /var/www
+    docker exec -i symfony_docker_php symfony new --full --dir= /var/www
 }
 
 function create_new_symfony_micro_project() {
-    docker exec -i klizzy_php symfony new --dir= /var/www
+    docker exec -i symfony_docker_php symfony new --dir= /var/www
 }
 
 shift || true

@@ -166,4 +166,7 @@ $RECYCLE.BIN/
 .env
 .docker-sync
 
+www/var/cache/*
+www/var/logs/*
+
 
