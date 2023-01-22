@@ -8,21 +8,21 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: root
         ports:
-            - 3336:3306
+            - "3336:3306"
     php:
-        image: klizzy/php-base:8.1
+        image: klizzy/php-base:8.2.1
         container_name: klizzy_php
         environment:
             APACHE_DOCUMENT_ROOT: /var/www/public
         volumes:
             - ./www:/var/www
         ports:
-            - 8080:80
+            - "8080:80"
     redis:
         image: redis:6.2.3
         container_name: klizzy_redis
         ports:
-            - 6379:6379
+            - "6379:6379"
     rabbitmq:
         image: rabbitmq:3.8.16-management
         container_name: klizzy_rabbitmq
@@ -30,7 +30,14 @@ services:
             RABBITMQ_DEFAULT_USER: admin
             RABBITMQ_DEFAULT_PASS: admin
         ports:
-            - 15672:15672
-            - 5672:5672
+            - "15672:15672"
+            - "5672:5672"
+    mailer:
+        image: schickling/mailcatcher
+        container_name: klizzy_mailcatcher
+        restart: unless-stopped
+        ports:
+            - "1025"
+            - "1080:1080"
 volumes:
     symfony-docker-volume: {}

@@ -12,6 +12,7 @@ This repository currently contains support for PHP 7.2 up to PHP 8.2.1. Just che
 * [Deployer](https://github.com/deployphp/deployer)
 * ZSH
 * Docker-sync / native docker volumes (OS will be detected)
+* Docker container for: redis, rabbitmq and mailcatcher
 
 
 ## Setup
