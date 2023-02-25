@@ -3,5 +3,7 @@ syncs:
     symfony_docker_volume:
         sync_strategy: 'native_osx'
         notify_terminal: true
+        sync_userid: '33'
+        sync_groupid: '33'
         src: 'www'
         sync_excludes: ['.git', '.idea', 'var/cache', 'var/cache/*', 'var/cache/log/*', 'var/log/*']
