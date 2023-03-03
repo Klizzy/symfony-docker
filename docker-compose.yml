@@ -2,11 +2,15 @@ version: '2'
 
 services:
     db:
-        image: mysql:5.7
+        image: mysql:8.0.31
         container_name: symfony_docker_mysql
         environment:
+            MYSQL_USER: user
+            MYSQL_PASSWORD: user123
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: root
+        volumes:
+            - symfony_docker_db_volume:/var/lib/mysql:rw
         ports:
             - "3336:3306"
     php:
@@ -41,3 +45,4 @@ services:
             - "1080:1080"
 volumes:
     symfony_docker_volume: {}
+    symfony_docker_db_volume:
