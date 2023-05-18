@@ -17,16 +17,18 @@ function command_ssh() {
 function command_start() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose -f docker-compose.yml up -d
+    else
+        docker-sync start && docker-compose -f docker-compose.yml up -d
     fi
-    docker-sync start && docker-compose -f docker-compose-sync.yml -f docker-compose.yml up -d
-
 }
 
 function command_stop() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose stop
+    else
+        docker-sync stop
+        docker-compose stop
     fi
-    docker-sync stop ; docker-compose stop
 }
 
 function command_rm() {
