@@ -18,7 +18,7 @@ function command_start() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose -f docker-compose.yml up -d
     else
-        docker-sync start && docker-compose -f docker-compose.yml up -d
+        docker-sync start && docker-compose -f docker-compose.yml -f docker-compose-sync.yml up -d
     fi
 }
 
@@ -27,7 +27,7 @@ function command_stop() {
         docker-compose stop
     else
         docker-sync stop
-        docker-compose stop
+        docker-compose -f docker-compose.yml -f docker-compose-sync.yml stop
     fi
 }
 
