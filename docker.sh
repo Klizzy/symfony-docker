@@ -18,7 +18,7 @@ function command_start() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose -f docker-compose.yml up -d
     else
-        docker-sync start && docker-compose -f docker-compose.yml -f docker-compose-sync.yml up -d
+        mutagen-compose -f docker-compose.yml -f docker-compose-mutagen.yml up
     fi
 }
 
@@ -26,14 +26,16 @@ function command_stop() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose stop
     else
-        docker-sync stop
-        docker-compose -f docker-compose.yml -f docker-compose-sync.yml stop
+        mutagen-compose -f docker-compose.yml -f docker-compose-mutagen.yml stop
     fi
 }
 
 function command_rm() {
     command_stop
     docker-compose rm -fv
+    if [[ ${ENV_MAC} == true ]]; then
+        mutagen-compose down
+    fi
 }
 
 function command_help() {
@@ -65,11 +67,13 @@ function xdebug_off() {
 }
 
 function create_new_symfony_full_project() {
-    docker exec -i symfony_docker_php symfony new --full --dir= /var/www
+    docker exec -i symfony_docker_php symfony new --webapp --dir= /var/www
+    command_permission
 }
 
 function create_new_symfony_micro_project() {
     docker exec -i symfony_docker_php symfony new --dir= /var/www
+    command_permission
 }
 
 shift || true
