@@ -10,7 +10,7 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: root
         volumes:
-            - symfony_docker_db_volume:/var/lib/mysql:rw
+            - symfony-docker-db_volume:/var/lib/mysql:rw
         ports:
             - "3336:3306"
     php:
@@ -44,5 +44,5 @@ services:
             - "1025"
             - "1080:1080"
 volumes:
-    symfony_docker_volume: {}
-    symfony_docker_db_volume:
+    symfony-docker-volume: {}
+    symfony-docker-db_volume:

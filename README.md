@@ -1,6 +1,6 @@
 # Docker Symfony setup
 
-Docker setup for symfony or other php projects. It currently supports MacOS (docker-sync) and Unix (native docker volumes).
+Docker setup for symfony or other php projects. It currently supports MacOS (Mutagen + mutagen-compose) and Unix (native docker volumes).
 This repository currently contains support for PHP 7.2 up to PHP 8.2.1. Just checkout the needed tag and you're good to go.
 
 **Current Specs**
@@ -12,7 +12,7 @@ This repository currently contains support for PHP 7.2 up to PHP 8.2.1. Just che
 * [Symfony-cli](https://symfony.com/download)
 * [Deployer](https://github.com/deployphp/deployer)
 * ZSH
-* Docker-sync / native docker volumes (OS will be detected)
+* [Mutagen](https://mutagen.io/documentation/introduction/installation) + [mutagen-compose](https://accesto.com/blog/docker-on-mac-how-to-speed-it-up/#mutagen) (**Required on MacOS**) / native docker volumes (OS will be detected)
 * Docker container for: redis, rabbitmq and mailcatcher
 
 
@@ -47,7 +47,7 @@ Type `./docker.sh` to see a help message for additional commands.
 ```
 
 ### Symfony full install
-It runs `symfony new --full ./` inside the docker container working dir. After that you'll have a running symfony default application. Change the DB credentials in the `www/.env`and you are good to go
+It runs `symfony new --webapp ./` inside the docker container working dir. After that you'll have a running symfony default application. Change the DB credentials in the `www/.env`and you are good to go
 ```bash
 ./docker.sh symfony:full
 ```

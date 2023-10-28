@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+    php:
+        volumes:
+            - symfony-docker-volume:/var/www
+x-mutagen:
+    sync:
+        defaults:
+            configurationBeta:
+                permissions:
+                    defaultOwner: "id:33"
+                    defaultGroup: "id:33"
+            ignore:
+                vcs: true
+                paths:
+                    - ".git"
+                    - ".idea"
+        symfony-docker-volume:
+            alpha: "./www"
+            beta: "volume://symfony-docker-volume"
+            mode: "two-way-resolved"
