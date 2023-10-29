@@ -55,7 +55,7 @@ function command_setup() {
     docker exec -w "/var/www/" symfony_docker_php cp .env.dist .env
     docker exec -w "/var/www/" symfony_docker_php composer install -oa
     docker exec -w "/var/www/" symfony_docker_php php bin/console doctrine:schema:create -n
-    docker exec -i symfony_docker_php chown www-data:www-data -R /var/www/
+    command_permission
 }
 
 function xdebug_on() {
