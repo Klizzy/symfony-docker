@@ -1,8 +1,0 @@
-version: "3.0"
-services:
-    php:
-        volumes:
-            - symfony-docker-volume:/var/www:nocopy
-volumes:
-    symfony-docker-volume:
-        external: true
