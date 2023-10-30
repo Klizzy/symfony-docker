@@ -18,7 +18,7 @@ function command_start() {
     if [[ ${ENV_MAC} == false ]]; then
         docker-compose -f docker-compose.yml up -d
     else
-        mutagen-compose -f docker-compose.yml -f docker-compose-mutagen.yml up
+        mutagen-compose -f docker-compose.yml -f docker-compose-mutagen.yml up -d
     fi
 }
 
