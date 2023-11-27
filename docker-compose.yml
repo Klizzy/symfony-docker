@@ -4,6 +4,7 @@ services:
     db:
         image: mysql:8.0.33
         container_name: symfony_docker_mysql
+        restart: unless-stopped
         environment:
             MYSQL_USER: user
             MYSQL_PASSWORD: user123
@@ -14,8 +15,9 @@ services:
         ports:
             - "3336:3306"
     php:
-        image: klizzy/php-base:8.2.1
+        image: klizzy/php-base:8.2.12
         container_name: symfony_docker_php
+        restart: unless-stopped
         environment:
             APACHE_DOCUMENT_ROOT: /var/www/public
         volumes:
@@ -25,11 +27,13 @@ services:
     redis:
         image: redis:6.2.3
         container_name: symfony_docker_redis
+        restart: unless-stopped
         ports:
             - "6379:6379"
     rabbitmq:
         image: rabbitmq:3.8.16-management
         container_name: symfony_docker_rabbitmq
+        restart: unless-stopped
         environment:
             RABBITMQ_DEFAULT_USER: admin
             RABBITMQ_DEFAULT_PASS: admin
